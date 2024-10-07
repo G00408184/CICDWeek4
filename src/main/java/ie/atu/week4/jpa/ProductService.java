@@ -24,29 +24,13 @@ public class ProductService {
     }
 
     public  String update(Product updatedProduct){
-        //Product existingProduct = findProductById();
 
-        /*if (existingProduct != null) {
-            existingProduct.setProductName(updatedProduct.getProductName());
-            existingProduct.setProductDescription(updatedProduct.getProductDescription());
-            existingProduct.setProductPrice(updatedProduct.getProductPrice());
-            return ResponseEntity.ok(existingProduct);
-        } else {
-            return ResponseEntity.notFound().build();
-        }*/
         productRepository.save(updatedProduct);
         return "updated product";
     }
 
     public String delete(Product updatedProduct){
-      /*  Product existingProduct = findProductById(id);
 
-        if (existingProduct != null) {
-            productRepository.delete();
-            return ResponseEntity.ok("deleted");
-        } else {
-            return ResponseEntity.notFound().build();
-        }*/
         productRepository.delete(updatedProduct);
         return "deleted";
     }
