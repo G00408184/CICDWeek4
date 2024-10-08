@@ -1,10 +1,6 @@
 package ie.atu.week4.jpa;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import java.util.List;
 
 @Service
@@ -23,10 +19,14 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public  String update(Product updatedProduct){
-
-        productRepository.save(updatedProduct);
-        return "updated product";
+    public  String update(Long id, Product updatedProduct){
+        if (productRepository.existsById(id)) {
+            updatedProduct.setId(id); // Ensure the updated product has the correct ID
+            productRepository.save(updatedProduct);
+            return "Product updated";
+        } else {
+            return "Product not found";
+        }
     }
 
     public String delete(Long id){

@@ -26,11 +26,11 @@ public class ProductController {
         return ResponseEntity.ok(productList);
     }
 
-   /* @PutMapping("/updateProduct/{id}")
+    @PutMapping("/updateProduct/{id}")
     public String updateProduct(@PathVariable Long id, @RequestBody Product updatedProduct) {
         return productService.update(id,updatedProduct);
 
-    }*/
+    }
 
     @DeleteMapping("/deleteProduct/{id}")
     public String deleteProduct(@PathVariable Long id) {
