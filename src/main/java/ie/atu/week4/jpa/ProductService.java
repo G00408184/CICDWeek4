@@ -29,10 +29,14 @@ public class ProductService {
         return "updated product";
     }
 
-    public String delete(Product updatedProduct){
+    public String delete(Long id){
 
-        productRepository.delete(updatedProduct);
-        return "deleted";
+       if (productRepository.existsById(id)){
+           productRepository.deleteById(id);
+           return "deleted product";
+        }else{
+           return "not found";
+       }
     }
 
 

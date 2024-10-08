@@ -26,14 +26,14 @@ public class ProductController {
         return ResponseEntity.ok(productList);
     }
 
-    @PutMapping("/updateProduct/{id}")
-    public String updateProduct(@RequestBody Product updatedProduct) {
-        return productService.update(updatedProduct);
+   /* @PutMapping("/updateProduct/{id}")
+    public String updateProduct(@PathVariable Long id, @RequestBody Product updatedProduct) {
+        return productService.update(id,updatedProduct);
 
-    }
+    }*/
 
     @DeleteMapping("/deleteProduct/{id}")
-    public String deleteProduct(@RequestBody Product deletedProduct) {
-        return  productService.delete(deletedProduct);
+    public String deleteProduct(@PathVariable Long id) {
+        return  productService.delete(id);
     }
 }
